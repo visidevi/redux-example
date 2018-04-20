@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
+// importamos el store
+import store from '../store'
 
 const styles = {
   products: {
@@ -8,7 +10,7 @@ const styles = {
     flexWrap: 'wrap'
   },
   product: {
-    width: '220px',
+    width: '200px',
     marginLeft: 10,
     marginRight: 10
   }
@@ -47,6 +49,12 @@ class ProductList extends Component {
   }
 
   addToCart(product) {
+    // primer metodo del store
+    // action es un objeto que tiene Type
+    store.dispatch({
+      type: "ADD_TO_CART",
+      product
+    })
 
   }
 }
